@@ -1,0 +1,1510 @@
+methods:
+int nexrInt(0 reads integer
+flaot nextFloat() reads float 
+double nextDouble()
+String next()
+String nextLine() reads the strings with space
+
+
+
+Class:
+class is a template or a blue print  for an object
+
+access specifiers class classname
+{
+instance variables;
+methods();
+{}
+blocks{}
+}
+
+
+
+Java supports 3 types of variables:
+1.INstance variable : declared at class level but delcared out side of the methods.
+2.Local variables: inside methods are called as local variables
+3.Static varibles: variables declard at class level with static keyword are called static variables.Local variables cannot be declared as staitc.
+
+
+
+Methods:
+contains the behaviour(bussiness logic) of the class these exposes the bussiness logic.
+
+2 types of methods:
+
+abstract methods :methods does not conatin the body.
+concrete methods:methods which have body.
+
+
+
+
+Concrete Methods have 2 types:
+
+
+methods which does not return any thing they are called void methods
+public void print()
+{
+S.O.pln("ABCD");
+}
+
+
+methods which return some thing return type they are called  premitive type or user defined type.
+public int get()
+{
+return 10;
+}
+
+Object:
+It is an instance of a class.
+it is real world entity
+
+properties of object:
+
+state:represents the properties of an object
+behaviour: represents the functionality of an object.
+id:it is also called referecnce id.When object is created java compiler provides a reference id to each object.It is in the following format:
+packagename.classname@hexadecimalvalue.
+
+How to create an object:
+
+using new keyword
+new keyword contiguously and dynamivcally allocates the memory to object at run time.it allocates memory in Heap area.
+class Student
+{
+int id;
+student name;
+}
+Student s;
+s=new Student();
+
+
+Using oops find sum of 3 numbers
+import java.util.*;
+class Sum1
+{
+int a,b,c;
+public void setData(int one,int two,int three)
+{
+a=one;
+b=two;c=three;
+}
+public int result()
+{
+return a+b+c;
+}
+}
+public class Ans 
+{
+int sol;
+public static void main(String args[])
+{
+Sum1 s=new Sum1();
+s.setData(10,20,30);
+System.out.println("sol"+s.result());
+}
+}
+
+
+Method overloading:
+same method name but different parameters.
+
+
+How to implement package from cmd
+javac -d . Filename.java
+
+
+java Libraries:
+
+java.lang package
+String StringBuffer StringBuilder Thread Exception classes
+
+
+java.util package
+Collection framwork & java 1.8 features.
+
+String is a sequence of imutable characters
+
+* we can create a string using 
+1.string constructor 
+Constructer of String
+String()
+String(String s)
+String s=new String("cof");
+String s1=new String("cof");
+System.out.println(s1+"\t"s2);
+String n="meghana"
+n.concat("Vinnakota");//n=n.concat("Vinnakota")
+System.out.println(n);//o/p is meghana
+//in this 2 cof are created and it is stroed in heap area.
+char c[]={'a','n','s','h'};
+String ss=new String(c);
+System.out.pritnln(ss);
+
+
+
+2. literal technique.
+String s1="cof";
+String s2="cof";
+in this only one cof is created and stored in String constant pool.(it is inside Heap area).
+
+Strings are mmutable because if 5 reference variables refers to same string object and
+if one reference variable changes that string it effects to all reference variable 
+that's why strings are immutable.
+Internally String class implements CharSequence interface.
+
+
+Methods of String class 
+boolean equals(String s) compares values
+boolean equalsIgnoreCase(String s)  compares values
+boolean == compares references
+int comapreTO(String s) compares values
+char charAt(int index)
+String subString(int index)
+int indexOf(char c)
+int lastIndexOf(char c)
+String concat(String s)
+String intern() gives duplicate of a string
+String toUpperCase()
+String toLowerCase()
+boolean startWith(String s)
+String trim()
+int lenght()
+static String valueOf(object o)   coverts primitive type to String
+String[] split(String regexp) splits the total string into single Strings.
+byte[] getBytes()
+
+
+StringBuffer class 
+It is used to create a mutable String 
+it is slow
+
+constructor 
+StringBuffer()
+StringBuffer(int size)
+StringBuffer(String s)
+
+methids
+StringBuffer append(String s)
+StringBuffer insert(int index,String s)
+StringBuffer replace(int start,int end ,String s()
+StringBuffer delete(int start, int end)
+StringBuffer reverse()
+void deleteCharAt(int index)
+void setCharAt(int index,char c)
+void setLenght(int l)
+
+
+
+public class Five{
+public static void main(String args[]){
+StringBuffer s1=new StringBuffer("hyd");
+StringBuffer s2=new StringBuffer("hyd");
+System.out.println(s1.equals(s2));//o/p : false
+
+}
+}
+
+
+public class Five{
+public static void main(String args[]){
+StringBuffer s1=new StringBuffer("Hello");
+System.out.println(s);
+s.setLength(2);
+s.setCharAt(1,'i');
+System.out.println(s);//o/p: hi
+}
+}
+
+
+
+
+
+public class Palindrome 
+{
+public static void main(String args[]) 
+{
+String m = "anna";
+StringBuffer b = new StringBuffer(m);
+      b.reverse();
+String data = b.toString();
+if(m.equals(data)){
+System.out.println("Given String is palindrome");
+} 
+else
+ {
+System.out.println("Given String is not palindrome");
+}
+}
+}
+
+
+StringBuilder class:
+used to cra\eate a mutable String
+it is not synchronized.means it is not thread safe
+i.e., multiple threads can access the stringBuilder method concurrently
+it is fast
+
+constructor 
+StringBuilder()
+StringBuilder(int size)
+StringBuilder(String s)
+
+
+
+exception handling:
+exception is an abnormal condition occures in a code sequence at run time.
+if the occured exception is not handled then the program will terminate anormally and we cannot maintain the smooth flow of an application
+if the exception is occured in the methid and handled/processed then the program will terminate normally and we can maintain the smooth flow of an application.
+thus the process of handling exception is called "EXCEPTION HANDLING" and achived through try catch throw throws finally key words.
+
+Types of exception:
+
+1.checked exception:
+these will occur at compile time .these extends THrowable class(ioException, classNotFoundException, SQLException)
+2.Unchecked exception:
+these will occur at run time .these extends RuntimeException class(ArrayIndexOutOfBoundException,NullPointerException,
+ArithemeticException,NymberFormatException,ClassCastException).
+3.Error
+there are irrecoverable(JVM error,VM error, Stack over flow error,out of memory error)
+
+Super class of exception is Throwable.
+
+try  catch block
+try:it is a block of code which may contain exception or may not .
+catch:it is a handler,always written after try block.used to handle exception.
+stack Trace:it represents an error information which represents the line no where the error occured,exception type,exception class,and method name.
+note: in the java program if any exception occured but not founf the try catch block then JVM uses the default exception handler and prints stack trace.
+
+public class one {
+public static void main(String args[])
+{
+try{
+int a=10/0;
+System.out.println(a);
+}
+catch(Exception e)
+{
+System.out.println("divided by zero"+e);
+}
+System.out.println("this code is executed");
+}
+}
+
+
+Note:in each try-catch block at a time only one exception is going to be occured and only one exception is going to be handled.
+
+
+try with multiple catch:
+
+try
+{
+code
+}
+catch(subClassException e){}
+catch(subClassException e){}
+catch(subClassException e){}
+catch(supperClassException e){}
+
+
+try block can also have multiple catch  when specified  multiple catch all catch statements must specified in order.
+
+public class Two
+{
+public static void m()
+{try{
+String s="meghana";
+int i=Integer.parseInt(s);
+System.out.println("Hello",subs\string(10));
+}
+catch(StringIndexOutOfBoundsException e)//catch(StringIndexOutOfBoundsException |ArithmeticException e)--->cannot write superclass exception in this method.
+{
+System.out.println("error1"+e);
+}
+catch(ArithmeticException e)
+{
+System.out.println("error2"+e);
+}
+}
+public static void mian(String args[])
+{
+m();
+}
+}
+
+
+Nested  try:
+we can also nest one try with in another try
+
+Syntax:
+try
+{
+code
+try
+{
+code
+}
+catch()//catch for inner try
+{
+}
+}//outer catch closed
+catch()
+}
+}
+
+Example:
+
+public class Two
+{
+public static void m()
+{
+try
+{
+System.out.println("hyderabd".lenght());
+try
+{
+int a[]=new int[1];
+a[2]=100/0;
+}
+catch(ArrayIndexOutOfBoundsException|StringOutOfBoundsException e)
+{
+System.out.println("error1"+e);
+}
+}
+catch(Exception e)
+{
+System.out.println("error 2"+e);
+}
+}
+public static void main(String args[])
+{
+m();
+}
+}//o/p:  9 error1.
+
+
+
+***program fro try catch in a catch:
+package student;
+class Two
+{
+public static void m()
+{
+try
+{
+	String s=null;
+System.out.println("alekhya".length());
+System.out.println(s.length());
+}
+catch(NullPointerException e)
+{
+	System.out.println("error1");
+try
+{
+ int a=100/0;
+}
+catch(Exception e1)
+{
+System.out.println("error2");
+}
+}
+}
+public static void main(String args[])
+{
+m();
+}
+}//o/p:  7 error1,error2.
+
+
+
+
+THROW KEYWORD::
+when u want to  throw exception manually we use throw keyword.
+throw throwableobject;
+
+SYNTAX:
+throw new ArithmaticException()
+throw new ArrayIndexOutOfBoundsException("error")
+throw new NullPointerException()
+throw new Exception()
+
+
+rules:
+u cannot throw multiple exceptions using throw
+u cannot write any statements after throw
+if u throw checked exception using throw u must use try-catch block
+throw must be used in the methods/constructers.
+
+write a program to enter a number from key board if no>0 dispaly that no. if no.<0 throw arthmatic exception and handle it.
+package student;
+import java.util.*;
+class number{
+public static void display(int n){
+if(n<0){
+throw new ArithmeticException("invalid no");
+}
+else{
+System.out.println(n);
+}
+}
+public static void main(String args[]){
+Scanner s=new Scanner(System.in);
+System.out.println("enter no.");
+int n=s.nextInt();
+number nu=new number();
+try{nu.display(n);}
+catch(ArithmeticException e){
+System.out.println("wrong input"+e);
+}
+}}
+
+throws keyword::
+used to declare exception
+used for java built in methods
+some java built in methods throe exception
+to handle those exception we use throw keyword
+u can declare both checked and unchecked exceptions
+using throws keyword
+syntax:
+public static void main(String args[]){ throws ClassNotFoundException{
+.....
+}
+u can also declare multiple exceptions used n method signature
+
+3 scenarios:
+1.exception occured and handled and method declare with throws keyword
+2.exception occured and not handled and method declare with throws keyword
+3.exception not occured  and method declare with throws keyword
+
+
+public student;
+class Simple(
+}
+public class Six{
+public static void main(String args[]) throws ClassNotFoundException{
+class c=new class for.Name("alekhya");
+}
+
+
+
+
+2.package sep_8;
+import java.io.IOException;
+import java.util.*;
+public class seven{
+static void m() throws IOException
+{
+throw new IOException("device error");
+}
+public static void main(String args[])throws IOException
+{
+m();
+}
+}
+
+
+
+3.import java util.;
+public class Eight{
+static void m() throws IOException
+{
+System.out.println("hi");
+}
+public static void main(String args[]){
+m();
+}
+}
+
+FInally:
+it is a block of code with always executes wether
+exception occured or not occured
+it is always excutes after the try catch block
+JVM executes finally block JUST before terminating the program u can write finally after try/try-catch
+there will be only 1 finally block for try-catch block
+if method returns some thing then also finally block executes just before method returns to the user.
+finally never executes if user exits from program through System.exit(0)
+Syntax:
+finally
+{}
+
+
+
+Assignment:
+
+
+1.Write program to illustirate that try catch can returnin finaly
+2.count the number of letters occured 
+3.write a program to count the permutation of a letter in a string
+
+
+
+1.class Final
+{
+static void m()
+{
+try{
+String s=null;
+}
+catch(ArithmeticException e)
+{
+System.out.println("error");
+}
+finally {
+try
+{
+int a=10/0;
+}
+catch(ArithmeticException e)
+{
+System.out.println("Hi");
+}
+}
+}
+public static void main(String args[])
+{
+m();
+}
+}
+
+
+2.
+public class Permutation
+{    
+public static void main(String[] args) 
+   {        
+String str = "ABC";     
+   int n = str.length();     
+   Permutation permutation = new Permutation();       
+ permutation.permute(str, 0, n-1);  
+  }
+
+    private void permute(String str, int l, int r)    
+{        if (l == r)          
+  System.out.println(str);        
+else      
+  {          
+  for (int i = l; i <= r; i++)     
+       {            
+    str = swap(str,l,i);                
+permute(str, l+1, r);               
+ str = swap(str,l,i);           
+ }
+        } 
+   }
+  public String swap(String a, int i, int j) 
+   {
+        char temp;    
+    char[] charArray = a.toCharArray(); 
+       temp = charArray[i] ; 
+       charArray[i] = charArray[j];  
+      charArray[j] = temp;   
+     return String.valueOf(charArray);
+    }
+}
+
+we can create custom exception by extending your class with exception class
+
+W.A.P to read age from keyboard if age>17 display "you are eligible to vote" 
+else throw custom exception IllegalAgeException and handle it.
+
+import java.util.*;
+class IllegalAgeException ex
+{
+public IllegalAgeException(String s)
+{
+super(s);
+}
+}
+public class Custom{
+public static void check(int age){
+try
+{
+if(age<18)
+{
+throw new IllegalAgeException("invalid age");
+}
+else
+{
+System.out.println("you are eligible to vote");
+}
+}
+catch(IllegalAgeException e)
+{
+System.out.println("wrong age");
+}
+}
+public static void main(String args[])
+{
+Scanner s=new Scanner(System.in);
+System.out.println("enter your age");
+int age=s.nextInt();
+check(age);
+}
+}
+
+
+
+Multithreading:
+
+Thread is a part of the program.It is a separate path of execution.when you execute multiple threads concurrently it is called multi-threading
+Multi-threading improves performance of application by making best use of CPU time and minimises the creation of idle time 
+features:
+Thread runs in process
+it runs in shared memory area of process
+it is light weight 
+inter-thread communication and context switching b/w threads are very easy and less expensive. 
+
+Life cycle of thread:
+1.new
+2.runnable
+3.running
+4.non runnable
+5.dead
+
+how to create a thread?
+thread is a class present in java.lang.*pkg constructor
+Thread()
+Thread(String s)
+Thread(Runnable r)
+Thread(Runnable r,String s)
+here runnable is an interface present in java.lang pkg
+
+2 ways to create a thread
+1.extending Thread class
+2.implementing Runnable interface
+Methods of Thread class
+void start()
+void run()
+staqtic void sleep(int millisec)------>throws InterruptedException
+suspends the operation
+void join() -------->throws InterruptedException
+waits until thread dies
+void interrupt() -------> interupts the threa dfrom sleep if thread is sleeping but thread continues to run
+boolean isInterrupted()
+boolean isAlive()
+static Thread currentThread()--------> retruns the reference of main thread 
+String getId()
+String getName()
+void setName(String name)
+ling getPriority()
+void setPriority(int priority)
+
+
+
+public class One extends Thread{
+public void run()
+{
+System.out.println("i am child");
+}
+public static void main(String args[])
+{
+One o=new One();
+One o1=new One();
+o.start();
+o1.start();
+}
+}
+
+
+
+package student;
+
+class T1 extends Thread
+{
+	@Override
+public void run()
+{
+System.out.println("task1");
+}
+}
+class T2 extends Thread
+{
+	@Override
+	public void run()
+	{
+	System.out.println("task2");
+	}
+}
+public class One 
+{
+public static void main(String args[])
+{
+T1 t=new T1();
+T1 t1=new T1();
+T2 t2=new T2();
+T2 t3=new T2();
+t.start();
+t1.start();
+t2.start();
+t3.start();
+}
+}
+
+
+wap create 3 threads which dispalys 1 to 10 
+package student;
+
+class One extends Thread
+{
+	@Override
+public void run()
+{
+		for (int i=1;i<11;i++) {
+			try {
+				
+			Thread.sleep(1000);
+			System.out.println(i);
+			}
+			catch(InterruptedException e) {
+				System.out.println("interrupted");	
+			}
+		}
+}
+public static void main(String args[])
+{
+	One t=new One();
+One t1=new One();
+One t2=new One();
+t.start();
+t1.start();
+t2.start();
+}
+}
+
+
+
+wap to control the main thread and change its name and priority.
+package abcd;
+
+public class Main {
+	public static void main(String[] args) {
+		Thread t=Thread.currentThread();
+		System.out.println(t);
+		t.setName("coforge");
+		t.setPriority(Thread.MAX_PRIORITY);
+		System.out.println(t);
+		for(int i=1;i<10;i++) {
+			try {
+				Thread.sleep(1000);
+				System.out.println(i);
+			}catch(InterruptedException e) {
+				System.out.println("error"+e);
+			}
+		}
+		
+	}
+
+}
+
+factorial::
+package abcd;
+import java.util.*;
+public class fact extends Thread {
+	int n,factorial;
+	fact(){
+		Scanner s=new Scanner(System.in);
+		System.out.println("enter the no");
+		n=s.nextInt();
+		}
+@Override
+public void run() {
+	if(n==0) {
+		factorial=1;
+		System.out.println(factorial);
+	}
+	else {
+		factorial=1;
+		for(int i=1;i<=n;i++) {
+			factorial=factorial*i;
+			}
+		System.out.println(factorial);
+	}
+}
+public static void main(String[] args) {
+	fact f=new fact();
+	f.start();
+}
+}
+
+creating thread implementing Runnable Interface
+we need to use following constructor
+Thread(Runnable r)
+package abcd;
+import java.util.*;
+public class fact extends Thread {//public class fact implements Runnable{
+	int n,factorial;
+	fact(){
+		Scanner s=new Scanner(System.in);
+		System.out.println("enter the no");
+		n=s.nextInt();
+		}
+@Override
+public void run() {
+	if(n==0) {
+		factorial=1;
+		System.out.println(factorial);
+	}
+	else {
+		factorial=1;
+		for(int i=1;i<=n;i++) {
+			factorial=factorial*i;
+			}
+		System.out.println(factorial);
+	}
+}
+public static void main(String[] args) {
+	fact f=new fact();
+                        //Thread t=new Thread(f);t.start();
+	f.start();
+}
+}
+
+interrupt() method:
+calling the interrupt() method breaks from the sleep if the thread is sleeping  but thread continues to run.
+
+demon thread::
+it is also called the background thread
+its life depends on user thread
+if there are no user thread JVM autometically destroys demon thread
+demon thread provides soe functionalities to user thread
+like GC grabage collector is a deamon thread used to recollect the momeory of unreferenced object.
+
+
+synchronization::
+it is applied to methods and static methods and blocks
+when u apply the syncheonised keyword then one thread can access one resource at a time
+multiple-threads can not access same resourse concurrently
+Syntax:
+public synchronized void m()
+{}
+Here m() method cannot accessed by more than one thread concurrently.
+
+Advantages:
+1.consistant result
+2.no thread interfference.
+
+Inter thread communication:
+
+this can be achived by wait(),notiyfy(),notifyall() methods
+these methods are present in object class
+
+wait()
+syntax:
+public void wait(int millisec)throws interuptedException
+when u call wait() on thread then the thread has to wait and allow other thread to access the resource
+notify()
+syntax:
+public void notify() 
+when you call notify() on a thread then one thread resume execution if it was waiting
+notifyAll()
+Syntax :
+public void notifyAll()
+when u call notifyAll() on a thread 
+then ALL thread resumes execution if ALL ARE waiting.
+
+
+
+
+display even and odd numbers using inter-thread communication:
+package sep_9;
+public class GFG {
+
+
+
+   
+    int counter = 1;
+
+
+
+   static int N;
+
+
+
+   public void printOddNumber()
+    {
+        synchronized (this)
+        {    
+            while (counter < N) {
+
+
+
+               while (counter % 2 == 0) {
+
+
+
+                   
+                    try {
+                        wait();
+                    }
+                    catch (
+                        InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+
+
+               System.out.print(counter + " ");
+                counter++;
+                notify();
+            }
+        }
+    }
+    public void printEvenNumber()
+    {
+        synchronized (this)
+        {
+            while (counter < N) {
+
+
+
+               while (counter % 2 == 1) {
+                    try {
+                        wait();
+                    }
+                    catch (
+                        InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+
+
+               System.out.print(
+                    counter + " ");
+
+
+
+               counter++;
+
+
+
+               notify();
+            }
+        }
+    }
+
+
+
+   public static void main(String[] args)
+    {
+            N = 10;
+        GFG mt = new GFG();
+
+
+
+       Thread t1 = new Thread(new Runnable() {
+            public void run()
+            {
+                mt.printEvenNumber();
+            }
+        });
+
+
+
+       
+        Thread t2 = new Thread(new Runnable() {
+            public void run()
+            {
+                mt.printOddNumber();
+            }
+        });
+
+
+
+       t1.start();
+        t2.start();
+    }
+}
+
+
+
+
+9/09/2022
+Assignments
+1. write a mutli thread program to send the messages asychrononous using synchorized ke y word
+2. write a mutli thread program to illustrate 
+
+2.package abcd;
+
+public class DeadLock {
+public static void main(String[] args) {
+	String s1="meghana";
+	String s2="vinnakota";
+	Thread t=new Thread()
+			{
+		@Override
+		public void run()
+		{
+			synchronized(s1)
+			{
+				System.out.println("thread 1 locks s1");
+				try {
+					Thread.sleep(1000);
+				}
+				catch(Exception e)
+				{	
+				}
+				synchronized(s2) {
+					System.out.println("thread 1 locks s2");
+				}	
+			}
+		}
+			};
+			Thread t2=new Thread()
+					{
+				@Override
+				public void run()
+				{
+					synchronized(s2)
+					{
+						System.out.println("thread 2 locks s2");
+						try {
+							Thread.sleep(1000);
+						}
+						catch(Exception e)
+						{	
+						}
+						synchronized(s1) {
+							System.out.println("thread 2 locks s1");
+				}
+					}
+				}
+					};
+					t.start();
+					t2.start();
+}
+}
+
+
+
+
+
+WRAPPER CLASS:::
+if primitive types are converted into objects.also called "AUTO BOXING".
+
+primitive types             wrapper class
+byte                                      Byte
+short                                     Short
+int                                         Int
+long                                       Long
+float                                      Float
+double                                Double
+ char                                 Character
+boolean                          Boolean
+
+all wrraper classes are immutable classes 
+these contians lot of methods
+these are present in java.lang pkg
+Integer class
+Constructor 
+Integer(int i)
+Integer(String s)
+
+
+methods:
+static int parseInt(String s) throws NumberFormatException
+static String to BinaryString(int i)
+static String to HexString(int i)
+static String to OctalString(int i)
+int intValue converts wrapper type to primitive type also called " un boxing"
+
+
+package abcd;
+
+public class Wrapper {
+public static void main(String[] args) {
+	int i=201;
+	Integer i1=new Integer(i);
+	System.out.println(i1);
+	System.out.println(Integer.toBinaryString(i1));
+	System.out.println(Integer.toHexString(i1));
+	System.out.println(Integer.toOctalString(i1));
+}
+}
+
+
+
+package abcd;
+import java.util.*;
+public class Reading {
+public static void main(String[] args) {
+	Scanner s=new Scanner(System.in);
+	System.out.println("Enter the no");
+	String str=s.next();
+	try
+	{
+		int ii=Integer .parseInt(str);
+		System.out.println("u entered"+ii);
+	}
+	catch(NumberFormatException e)
+	{
+		System.out.println("Errpr"+e);
+	}
+	Double dd=new Double(7597.768);
+	System.out.println(dd);
+	System.out.println(Double.isInfinite(1.0/0.0));
+	System.out.println(Double.isNaN(0.0/0.0));
+}
+}
+
+
+Collection Framework:
+java.util.*pkg
+
+it contains collection framework classes and interfaces
+
+
+intro to CF
+FrameWork:
+It is a ready made architecture contains the set of classes and interfaces 
+eg:Spring framework JUNIT framework mockito framework  collection framework  etc...
+
+
+collection:
+it is a framework used to work with group of objects.
+Builds DYNAMIC array used to store generic(Same data type)& non generic (different data types) elements
+supports classes like LinkedList ArrayList   Vector HashSet TreeSet HashMap TreeMap
+supports interfaces like List Set Map Queue Iterator etc...
+used to store the elements 
+traverse the elements
+used to perform operation on elements like sorting searching reversing etc... 
+
+
+Methods of collection interface:
+boolean add(object o) adds one element into collection
+boolean addAll(collection c) adds the elements of one collection into another collection 
+
+
+
+package abcd;
+import java.util.ArrayList;
+public class ArrayExample {
+public static void main(String[] args) {
+    ArrayList ai=new ArrayList();
+    ai.add(758);
+    ai.add(31.7576);
+    ai.add(758.53f);
+    ai.add(true);
+    ai.add("HiHello");
+    ai.add("sai");
+    ai.add("hi");
+    System.out.println(ai);
+    for(Object o: ai)//for(int i=0;i<ai.size();i++)
+    {
+    	System.out.println(o);//System.out.println(ai.get(i));
+    }
+}
+}
+
+program to caluculate sum :
+package abcd;
+import java.util.ArrayList;
+public class ArrayExample {
+public static void main(String[] args) {
+    ArrayList ai=new ArrayList();
+    ai.add(2);
+    ai.add(3);
+    ai.add(5);
+   int s=0;
+   for(Object o:ai) {
+	   s=s+(int)o;
+	   System.out.println(s);
+   }
+}
+}
+
+
+package abcd;
+import java.util.*;
+public class ArrayExample {
+public static void main(String[] args) {
+    ArrayList<String> ai=new ArrayList<String>();
+    ai.add("meg");
+    ai.add("ale");
+    ai.add("pra");
+   Iterator<String>i=ai.iterator();
+   while(i.hasNext())
+	   {
+	   System.out.println(i.next());
+   }
+}
+}
+
+
+
+
+vector class
+
+it is legacy class
+it is synchronized
+builds the dynamic
+implements list interface
+
+
+constructor
+vector()
+vector(int size)
+vector(int capcity, int increment)
+vector(collection)
+
+methods
+void addElement(Object o)
+Enumeration elements()
+void add(object o)
+object elementAt(int index)
+int capacity();
+
+
+set interface::
+
+supports UNIQUE, generic non generic and null elements.
+it has 2 interfaces
+set and soprtedset
+set is iplemented by 2 classes
+Hashset and linkedhashset
+
+sortedset is implemented by treeset
+
+Hashset::
+
+uses hashing technique to store the keys supports UNIQUE, generic non generic and null elements
+o/p Hashset us ANY ORDER.
+
+set interface has same methods as list interface.
+but it does not conatin listIterator() method
+
+
+Hah code method 
+Syntax:
+int hashCode()
+it is a method of objects class specifies the hash code of object.
+it is integer value u cannot specify has code for.
+
+premitive type:
+equals()method
+it is also a method of object class
+public boolean equals(object o)
+compares the refernces of 2 objects.
+
+note:if 2 object codes are qquals then bith objects are equal
+
+LinkedHashSet constructor
+LinkedHashSet()
+LinkedHashSet(Collection c)
+LinkedHashSet(int size)
+it is same as hashSet but o/p is insertion order supports null generic elements.
+
+write a program to creat a class called product with id name and price insert 3 object and display in LinkedHashSet
+
+TreeSet:
+it implemets sortedSet interface
+
+constructor:
+TreeSet()
+TreeSet(int size)
+TreeSet(Collection c)
+TreeSet(Comapartor c)
+
+used to STORE LARGE AMOUNT DATA
+used to storre data in heirachical structure
+o/p is in sorted oreder
+supports generic types
+if u enter null values u will get NullPointerException
+if u enter non generic values u will get ClassCastException
+
+Collections class:
+it is present in java.util.*pkg
+used to perform operations on collection elements
+it contains static methods
+public static void sort(List 1)
+public static void sort(List 1,Comparator c)
+public static int binarySearch(List 1,int key)
+public static int min(List 1)
+public static int max(List 1)
+public static void reverse(List 1)
+
+comparable interface:
+used to compare the data members
+it will compare on any one data members
+but sorting has been done by collections.sort() method only
+it has a following method
+public int compareTo(Object o)
+compoares invoking object bwoth specified object.
+create a class called book with id ,name and author and price.insert 4 objects of book in arrayList and sort on author name.
+
+Map: it is used to store key value pair
+key must be occur at left side
+value must occur at right side
+key must be unique
+2 interface 
+map interface implemented  by hashMap and LinkedHashMap classes 
+
+SortedMap:
+interface implemented by TreeMap
+
+Map interface methods
+Map put(Object key,Object value)
+Map putAll(Map m)
+boolean containsKey(Object key)
+boolean containsValue(Object value)
+Object get(Object key)
+Set keySet()
+Set entrySet()
+Collection values()
+
+HashMap
+constructor
+HashMap()
+HashMap(int size)
+HashMap (Map m)
+features
+supports
+1 null key multiple null values
+key must be unique value can be duplicated
+key and value both can generic and non generic
+0/p is any order or key basis 
+
+
+Linked HashMap
+constructor
+LInkedHashMap()
+LinkedHashMap(int size)
+LinkedHashMap (Map m)
+features
+supports 1 null key multiple null values
+key must be unique value can be duplicated
+key and value both can generic and non generic
+0/p is insertion  order or key basis 
+
+
+
+
+TreeMap
+constructor
+TreeMap()
+TreeMap(int size)
+TreeMap (Map m)
+TreeMap (Comparator c)
+features
+supports  no null key multiple null values
+key must be unique value can be duplicated
+key must be generic 
+ value can be  both  generic and non generic
+0/p is sorted  order or key basis 
+implemets sorted interface.
+Stores data in tree structure
+fast access as it sorts data in assending order
+used to store large data.
+
+
+Jdk 1.8 features
+1.Function INterface
+2.Lamda expressions
+3.optional class
+4.collectors class
+5.Stream API
+6.Method references
+
+
+
+
+ 1.Functional interface: an interface that contains only one abstract method.
+it also contains concrete method of default access specifier
+it is created by using @FunctionalInterface annotation
+package Alekhya07;
+@FunctionalInterface
+interface intermed{
+    void m();
+    default void method1() {
+        System.out.println("i am default");
+    }
+}
+public class one implements intermed{
+    @Override
+    public void m() {
+        System.out.println("i am from FI");
+    }
+public static void main(String[] args) {
+    one o=new one();
+    o.method1();
+    o.m();
+}
+}
+
+
+
+create a functional interface to find the sum of 2 numbers and implement using "anonymous inner class".
+package Alekhya07;
+@FunctionalInterface
+interface inter2{
+    int add(int a,int b);
+    }
+public class two {
+    public static void main(String[] args) {
+        inter2 i=new inter2()
+        {
+          @Override
+        public int add(int a,int b) {
+            return a+b;
+        }
+        };
+        System.out.println("sum"+i.add(10,19));
+    }
+
+
+
+}
+
+
+
+2.Lambda expresstions:provides implementation of functional interface
+these are the single line functions
+u can provide the functional interfaces methods implementations without specifying method name
+syntax::
+()->implemantation
+
+
+
+left side represents parameters
+right side represent body
+
+
+
+(int i)->{
+return i;
+}
+(int a,int b)->{
+System.out.println(a+b);
+}
+
+Result SetMetaData :
+It is an interface used to provide characteristics of a table like what is column name? how many no.of columns are there e.t.c..
+Result SetMetaData r =res.getMetaData()
+
+methods:
+
+String getColumnName(int columnindex)
+int getColumncount()
+
+Executing precompiled sql statements using PreparedStatements
+PreparedStatements uses place markers in their query
+in this techinique PreparedStatements uses ? as place markers
+If developers wants to excute SQL statements 100 time then database engine will not optimize the sql statmenets only 1 time and excutes 
+it later Java replaces?by values. This improves the performance of database engine syntax
+
+Preparedstatment  PrepareStatment(String s)
+
+methods
+
+int excuteUpdate()  excutes DML statements
+boolean excute() excutes DDL DML Statments
+ResultSet excuteQuery() excutes DQL statments
+void setString(int parameterIndex, String Name)
+void setInt(int parameterIndex, Int value)
+
+Q.Insert 1 row into emphyd table by reading id name and age from keyboard. Use Preparedstatements
+
+
+
+
+
